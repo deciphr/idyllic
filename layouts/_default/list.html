@@ -1,0 +1,7 @@
+{{ define "main" }}
+  {{ if eq .Section "blog" }}
+    {{ range .Pages.ByTitle }}
+      {{ partial "blog.html" . }}
+    {{ end }}
+  {{ end }}
+{{ end }}

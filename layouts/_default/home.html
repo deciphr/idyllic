@@ -1,0 +1,33 @@
+{{ define "main" }}
+  {{ $menuConfig := dict
+    "whoami" (dict "partial" "whoami" "page" false)
+    "experience" (dict "partial" "experience.html" "page" "/experience")
+    "projects" (dict "partial" "project.html" "page" "/projects")
+    "blog" (dict "partial" "blog.html" "page" "/blog")
+  }}
+
+  {{ range site.Menus.main }}
+    {{ $section := . }}
+    {{ $config := index $menuConfig .Name }}
+
+    {{ if $config }}
+      {{ if $config.page }}
+        {{ with site.GetPage $config.page }}
+          {{ if .Pages }}
+            <div class="menu-section pt:32px gap:16px" id="{{ $section.Name }}-container">
+              {{ partial "menu_section" $section }}
+              {{ range (.Pages.ByDate.Reverse | first 3) }}
+                {{ partial $config.partial . }}
+              {{ end }}
+            </div>
+          {{ end }}
+        {{ end }}
+      {{ else }}
+        <div class="menu-section" id="{{ $section.Name }}-container">
+          {{ partial "menu_section" $section }}
+          {{ partial $config.partial }}
+        </div>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}

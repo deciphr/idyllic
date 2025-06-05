@@ -1,0 +1,11 @@
+<div class="fira-mono flex ai:center jc:space-between bg:rgb(32,32,32) mt:32px rt:8px">
+  <span class="inline-block f:12px rtl:8px p:8px px:20.8px">{{ .Get 1 }}</span>
+  <button class="copy-button flex ai:center bg:none b:none r:4px p:4 f:#f0f0f0 f:18px mr:20.8px gap:6px opacity:0.75 f:#fff:hover opacity:1:hover transition:200ms" data-clipboard-text="{{ .Inner }}">
+    <ion-icon class="inline-block"name="copy-outline"></ion-icon>
+  </button>
+</div>
+{{ if len .Params | ge 3 }}
+  {{ highlight (trim .InnerDeindent "\n\r") (.Get 0) (.Get 2) }}
+{{ else }}
+  {{ highlight (trim .InnerDeindent "\n\r") (.Get 0) "" }}
+{{ end }}

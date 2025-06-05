@@ -1,0 +1,14 @@
+{{ define "main" }}
+  <h1 class="mb:0">{{ .Title }}</h1>
+  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+  {{ $dateHuman := .Date | time.Format ":date_long" }}
+  <time class="f:14 f:rgb(170,170,170)" datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+  <div>
+    {{ partial "tags.html" . }}
+  </div>
+
+
+  <div class="fira-sans">
+    {{ .Content }}
+  </div>
+{{ end }}

@@ -1,0 +1,25 @@
+<div class="footer-container">
+    <p>© {{ now.Year }} {{ site.Title }}</p>
+    <p>Theme <b>Idyllic</b></p>
+</div>
+
+<script>
+    let clipboard = new ClipboardJS('.copy-button');
+
+    clipboard.on('success', function (e) {
+        let icon = e.trigger.querySelector('ion-icon');
+        let delay = 2000;
+        
+        if (icon) {
+            icon.setAttribute('name', 'checkmark-outline');
+            setTimeout(function () {
+                icon.setAttribute('name', 'copy-outline');
+            }, delay);
+        }
+
+        e.trigger.classList.add('copied');
+        setTimeout(function () {
+            e.trigger.classList.remove('copied');
+        }, delay); // Green for 1 second
+    });
+</script>

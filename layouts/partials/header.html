@@ -1,0 +1,15 @@
+<div class="navigation-bar">
+	<div class="nav-item" id="logo">
+		<a href="/">{{ site.Title }}</a>
+	</div>
+	<div class="nav-item" id="menu">
+		{{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+	</div>
+	<div class="nav-item" id="socials">
+		{{ $github := site.Params.socials.github}}
+		{{ if $github }}
+			<a aria-label="GitHub" href="{{ $github }}"><ion-icon name="logo-github" aria-label="true"></ion-icon></a>
+		{{ end }}
+	</div>
+</div>
+

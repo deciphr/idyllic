@@ -1,0 +1,15 @@
+<div class="b:1px|solid|rgba(98,98,98,1) r:8px w:100% bg:rgba(100,100,100,0.025):hover shadow:0|0|30px|12px|rgba(255,255,255,0.025):hover transition:200ms">
+    <div class="ai:center d:flex jc:space-between p:16px py:0px">
+        <p class="f:24px my:0px"><b><a class="color:#f0f0f0 t:none" href="{{.Permalink }}">{{ .Title }}</a></b></p>
+        <p class="f:18px f:300">{{ .Date | time.Format ":date_medium" }}</p>
+    </div>
+    <div class="blog-summary m:0_p pl:16px">
+        {{ .Summary }}
+        {{ if .Truncated }}
+            <a class="color:#f0f0f0 t:none" href="{{ .RelPermalink }}">Read more...</a>
+        {{ end }}
+    </div>
+    <div class="p:16px">
+        {{ partial "tags.html" . }}
+    </div>
+</div>

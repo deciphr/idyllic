@@ -1,0 +1,13 @@
+{{ $taxonomy := "tags" }}
+{{ with .Param $taxonomy }}
+  {{ range $index, $tag := . }}
+    {{ with $.Site.GetPage (printf "/%s/%s" $taxonomy $tag) }}
+      {{ $tagColor := index $.Site.Params.tagcolors $tag | default "" }}
+      <a 
+        class="b:1px|solid|#444444 r:6px color:#d6d6d6 color:#ffffff:hover f:12px p:4px;11px t:none font-weight:300 transition:200ms
+        {{ if $tagColor }}b:1px|solid|{{ $tagColor }}aa:hover bg:{{ $tagColor }}50:hover shadow:0|0|4px|1px|{{ $tagColor }}aa:hover{{ end }}"
+        href="{{ .Permalink }}"
+      >{{ $tag | urlize }}</a>
+    {{- end -}}
+  {{- end -}}
+{{ end }}

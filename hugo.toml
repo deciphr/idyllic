@@ -1,0 +1,28 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-US'
+title = 'Idyllic'
+
+[[menus.main]]
+name = 'whoami'
+pageRef = '/whoami'
+weight = 10
+
+[[menus.main]]
+name = 'experience'
+pageRef = '/experience'
+weight = 20
+
+[[menus.main]]
+name = 'projects'
+pageRef = '/projects'
+weight = 30
+
+[[menus.main]]
+name = 'blog'
+pageRef = '/blog'
+weight = 40
+
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = "0.116.0"
