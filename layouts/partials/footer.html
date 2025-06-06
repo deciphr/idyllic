@@ -1,6 +1,11 @@
 <div class="footer-container">
     <p>© {{ now.Year }} {{ site.Title }}</p>
-    <p>Theme <b>Idyllic</b></p>
+    <p>Theme
+        <a href="https://github.com/deciphr/idyllic"
+            class="f:#f0f0f0 text-decoration:1px text-underline-offset:4px t:dotted f:#d0d0d0:hover transition:200ms text-shadow:0|0|5|#FBE09Da1:hover">
+            <b>Idyllic</b>
+        </a>
+    </p>
 </div>
 
 <script>
@@ -9,7 +14,7 @@
     clipboard.on('success', function (e) {
         let icon = e.trigger.querySelector('ion-icon');
         let delay = 2000;
-        
+
         if (icon) {
             icon.setAttribute('name', 'checkmark-outline');
             setTimeout(function () {
